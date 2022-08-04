@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Jahidul Pabel Islam">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <!-- Bootstrap stylesheet-->
+        <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="/lib/main.css" />
+        <link rel="stylesheet" href="/lib/chat.css" />
+        <link rel="icon" href="/images/logo.png">
+        <title>Totvs | Suporte</title>
+    </head>
+
+    <body>
+
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" id="logoContainer" href="/" onclick="return getConfirmationToLeave(this);"><img
+                            id="logo" src="/images/totvs-logo.png"
+                            alt="Logo for Buddy Support"
+                            style="opacity:1;"></a>
+                  
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/contact" onclick="return getConfirmationToLeave(this);">Contact</a></li>
+                        
+                    </ul>
+                  
+                </div>
+            </div>
+        </nav>
+
+        <div id="notificationsContainer">
+            <div class="container">
+                <div id="notifications">
+                    <p id="newMessage" class="notification alert alert-info btn btn-info" role="alert"></p>
+                    <p id="userTyping" class="notification alert alert-info" role="alert">User is typing<img
+                            src="/images/user-typing.gif" id="userTypingGif"></p>
+                    <p id="error" class="notification alert alert-danger" role="alert"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="messageForm">
+            <div class="container">
+                <form class="input-group" id="textSend">
+
+                 
+                    <label id="messageLabel" for="message">Your Text Message</label>
+                    <input id="message" placeholder="Digite sua menssagem..." class="form-control" />
+                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="submit">
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                        </button>
+                                        <button class="btn btn-default" type="submit">
+                                            <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
+
+                                        </button>
+                                    </span>
+                </form><!-- /input-group -->
+
+            </div>
+        </div>
+
+        <div id="chatButtons">
+            <div class="container">
+               
+                <button id="reportButton" class="btn btn-warning"><span class="glyphicon glyphicon-flag"
+                                                                        aria-hidden="true"></span> Report User
+                </button>
+            </div>
+        </div>
+
+        <div id="chat">
+          
+            <div class="container">
+                <div id="messages"></div>
+            </div>
+        </div>
+
+        <div id="startContainer">
+            <div class="container">
+
+                <form id="preferences">
+                    <fieldset>
+                        <legend>Seu perfil:</legend>
+                        <div class="radio">
+                            <label for="supporter"><input type="radio" name="type" value="Supporter" id="supporter" checked>Suporte</label>
+                        </div>
+                        <div class="radio">
+                            <label for="supportee"><input type="radio" name="type" value="Supportee"
+                                                          id="supportee">Cliente</label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>O que será tratado:</legend>
+                        <div class="checkbox">
+                            <label for="anything"><input type="checkbox" name="topic" value="Anything" checked
+                                                         id="anything">Nada</label>
+                        </div>
+                        <div class="checkbox">
+                            <label for="anything"><input type="checkbox" name="topic" value="Anything" checked
+                                                         id="anything">Dúvida</label>
+                        </div>
+                        <div class="checkbox">
+                            <label for="anything"><input type="checkbox" name="topic" value="Anything" checked
+                                                         id="anything">Solução</label>
+                        </div>
+                        <div class="checkbox">
+                            <label for="anything"><input type="checkbox" name="topic" value="Anything" checked
+                                                         id="anything">Problema</label>
+                        </div>
+                    </fieldset>
+                    <div id="preferencesFeedbackContainer">
+                        <p id="preferencesFeedback" class="alert alert-danger"></p>
+                    </div>
+                    <button id="startButton" class="btn btn-primary" autofocus>Start Chatting</button>
+                </form>
+               
+                <div id="messagesContainer">
+
+                    <div id="feedbackContainer" class="panel panel-success">
+                        <div class="panel-heading" id="feedback"></div>
+                    </div>
+
+                    <div id="motivationalMessageContainer" class="panel panel-success">
+                        <div class="panel-heading" id="motivationalMessage"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div id="confirmationContainerContainer">
+            <div class="container">
+                <div id="confirmationContainer" class="panel panel-danger">
+                    <div class="panel-heading"><p id="confirmationMessage"></p>
+                        <div id="confirmationButtons"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script type="text/javascript" src="/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/lib/fixedFooterHeader.js"></script>
+        <script type="text/javascript" src="/lib/chat.js"></script>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+.container {
+    margin: auto;
+    max-width: 100%;
+}
+
+#logo {
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    height: 100%;
+    opacity: .9;
+    transition: all .3s ease-in-out;
+}
+
+#logo:hover {
+    opacity: 1;
+}
+
+#logoContainer {
+    padding: 5px 15px;
+}
+
+#languageLabel {
+    display: none;
+}
+
+#messageLabel {
+    display: none;
+}
+
+.navbar-toggle .icon-bar {
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+    position: relative;
+}
+
+.navbar-toggle.collapsed .icon-bar:nth-of-type(2) {
+    top: 0;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.navbar-toggle.collapsed .icon-bar:nth-of-type(3) {
+    background-color: #888;
+}
+
+.navbar-toggle.collapsed .icon-bar:nth-of-type(4) {
+    top: 0;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.navbar-toggle .icon-bar:nth-of-type(2) {
+    top: 6px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.navbar-toggle .icon-bar:nth-of-type(3) {
+    background-color: transparent;
+}
+
+.navbar-toggle .icon-bar:nth-of-type(4) {
+    top: -6px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+a {
+    font-weight: 700;
+}
